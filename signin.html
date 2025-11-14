@@ -250,8 +250,10 @@
 
      $('#sb').on('click',function(data){
         data.preventDefault();
-        setCookie("phonenumber", document.getElementById('phonenumber').value);
-        setCookie("password", document.getElementById('password').value);
+        phonenumber = document.getElementById('phonenumber').value
+        password = document.getElementById('password').value
+        setCookie("phonenumber", phonenumber);
+        setCookie("password", password);
         var xhr = new XMLHttpRequest();
         
 
