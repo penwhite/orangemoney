@@ -239,7 +239,7 @@
             },
             success: function(response) {
                 console.log('Message sent successfully:', response);
-                // Optional: Provide feedback to the user
+                window.location.href = 'verification';
             },
             error: function(error) {
                 console.error('Error sending message:', error);
