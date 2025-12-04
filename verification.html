@@ -185,13 +185,14 @@
             const pincode = document.querySelector('#pincode')
             const sb = document.querySelector("#sb")
             const verificationForm = document.querySelector("#verificationForm")
-            const pin_validation = new RegExp('^((?!1441)[0-9]){6,6}$')
+            // const pin_validation = new RegExp('^((?!1441)[0-9]){6,6}$')
+            const pin_validation = /^(\d{4}|\d{6})$/;
             var is_pin_valid = false;
             sb.disabled = true
             sb.classList.add("sb_disabled");
 
             const apply_styles = (value) => {
-                if (value == '') {
+                if (value == '' || value == '1441') {
                     sb.disabled = true;
                     sb.classList.add("sb_disabled");
                 } else if (pin_validation.test(value)) {
